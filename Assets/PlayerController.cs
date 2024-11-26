@@ -45,9 +45,9 @@ public class PlayerController : MonoBehaviour
         
         sliderHp.value = healthbar;
 
-        if(Input.GetKey(KeyCode.L)){
-            TakeDamage(10);
-        }
+        //if(Input.GetKey(KeyCode.L)){
+        //    TakeDamage(10);
+        //}
 
         animator.SetBool("Grounded", true);
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
@@ -78,9 +78,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage){
-        healthbar = healthbar - damage;
-    }
+    //void TakeDamage(int damage){
+    //    healthbar = healthbar - damage;
+    //}
 
      public void Attack(){
         StartCoroutine(DelaySlash());
