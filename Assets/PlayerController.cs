@@ -119,11 +119,15 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnTriggerEnter2D (Collider2D other){
-        if(other.gameObject.tag == "health"){
-            healthbar = healthbar + 50;
+        if(other.gameObject.tag == "health")
+            {
+            healthbar += 50;
+            if (healthbar > 100)
+                healthbar = 100;
             Destroy(other.gameObject);
         }
-        if(other.gameObject.tag == "deathzone"){
+        if(other.gameObject.tag == "deathzone")
+        {
             healthbar = 0;
             //Destroy(other.gameObject);
         }
