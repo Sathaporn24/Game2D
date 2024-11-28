@@ -14,9 +14,10 @@ public class PlayerController : MonoBehaviour
     public float nextJumpPress = 0.0f;
     public float fireRate = 0.2f;
     public float nextFireRate = 0.0f;
-    private int comboStep = 0;
-    private float comboTimer = 0f;
-    public float comboResetTime = 1f; // เวลาที่จะรีเซ็ตคอมโบถ้าไม่มีการกดเพิ่ม
+    private int comboStep = 0; // ขั้นตอนในคอมโบ
+    public float comboResetTime = 0.05f; // เวลาสำหรับรีเซ็ตคอมโบ
+    private float lastComboTime = 0.0f; // เวลาโจมตีครั้งล่าสุด
+
     private Rigidbody2D ridigBody2D;
     private Physics2D physic2D;
     Animator animator;
@@ -54,16 +55,24 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("Grounded", true);
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
-        if (Input.GetAxis("Horizontal") < -0.1f)
+        
+        float horizontalInput = Input.GetAxis("Horizontal");
+        if (horizontalInput < -0.1f)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 180);
         }
-        else if (Input.GetAxis("Horizontal") > 0.1f)
+        else if (horizontalInput > 0.1f)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 0);
         }
+        else
+        {
+            // หยุดการเคลื่อนไหวเมื่อไม่มีการกดปุ่ม
+            transform.Translate(Vector2.zero);
+        }
+        
         if(Input.GetButtonDown("Jump") && Time.time > nextJumpPress){
             animator.SetBool("Jump",true);
             nextJumpPress = Time.time + jumpRate;
@@ -73,57 +82,26 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFireRate)
-{
-    nextFireRate = Time.time + fireRate;
-    HandleAttack();
-}
+        {
+            nextFireRate = Time.time + fireRate;
 
-void HandleAttack()
-{
-    comboStep++;
-    comboTimer = 0f; // รีเซ็ตตัวจับเวลา
+            if (Time.time - lastComboTime > comboResetTime)
+            {
+                // รีเซ็ตคอมโบหากเกินเวลาที่กำหนด
+                comboStep = 0;
+            }
 
-    if (comboStep == 1)
-    {
-        animator.ResetTrigger("Attack2");
-        animator.ResetTrigger("Attack3");
-        animator.SetTrigger("Attack1");
-    }
-    else if (comboStep == 2)
-    {
-        animator.ResetTrigger("Attack1");
-        animator.ResetTrigger("Attack3");
-        animator.SetTrigger("Attack2");
-    }
-    else if (comboStep == 3)
-    {
-        animator.ResetTrigger("Attack1");
-        animator.ResetTrigger("Attack2");
-        animator.SetTrigger("Attack3");
-        ResetCombo(); // รีเซ็ตคอมโบหลังจากท่าสุดท้าย
-    }
-}
+            comboStep++; // เพิ่มขั้นของคอมโบ
+            lastComboTime = Time.time; // บันทึกเวลาที่โจมตีล่าสุด
 
-// ฟังก์ชันสำหรับรีเซ็ตคอมโบเมื่อหมดเวลา
-void ResetCombo()
-{
-    comboStep = 0;
-    comboTimer = 0f;
-    animator.ResetTrigger("Attack1");
-    animator.ResetTrigger("Attack2");
-    animator.ResetTrigger("Attack3");
-    animator.SetInteger("ComboStep", 0);
-}
+            if (comboStep > 3) // กำหนดจำนวนคอมโบสูงสุด (ปรับได้)
+            {
+                comboStep = 0; // รีเซ็ตไปเริ่มต้นที่คอมโบแรก
+            }
 
-// ใน Update เพิ่มการตรวจจับเวลารีเซ็ตคอมโบ
-if (comboStep > 0)
-{
-    comboTimer += Time.deltaTime;
-    if (comboTimer > comboResetTime)
-    {
-        ResetCombo();
-    }
-}
+            animator.SetInteger("ComboStep", comboStep); // ส่งค่าขั้นตอนคอมโบไปยัง Animator
+            animator.SetTrigger("Attack"); // เล่นแอนิเมชันโจมตี
+        }
 
     }
 
