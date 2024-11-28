@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: 404afbccec0f268468abfb92c2fc1f10
+guid: c68f2343dae322b4eb914021eb47ec1c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2393064668503620129
-    second: Walk1_0
+      213: -3292348644277688320
+    second: flying-eye-demon_0
   - first:
-      213: 2445549238378987329
-    second: Walk1_1
+      213: -3389302680476756068
+    second: flying-eye-demon_1
   - first:
-      213: -5837848393322378839
-    second: Walk1_2
+      213: 3448470480194082598
+    second: flying-eye-demon_2
   - first:
-      213: 6947285889481737074
-    second: Walk1_3
+      213: -4227906848341939372
+    second: flying-eye-demon_3
   - first:
-      213: 1395730472836677095
-    second: Walk1_4
+      213: 7126149834605645059
+    second: flying-eye-demon_4
   - first:
-      213: 6689241391222078509
-    second: Walk1_5
+      213: 6097334665552910749
+    second: flying-eye-demon_5
+  - first:
+      213: -5157338338041754627
+    second: flying-eye-demon_6
+  - first:
+      213: -5994995186947795647
+    second: flying-eye-demon_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -128,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk1_0
+      name: flying-eye-demon_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 21
-        height: 35
+        x: 11
+        y: 10
+        width: 24
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12a32b213afd53120800000000000000
-      internalID: 2393064668503620129
+      spriteID: 008e6150a5a3f42d0800000000000000
+      internalID: -3292348644277688320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_1
+      name: flying-eye-demon_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 0
-        width: 18
-        height: 36
+        x: 58
+        y: 10
+        width: 30
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14f7e42431650f120800000000000000
-      internalID: 2445549238378987329
+      spriteID: c9757ed5b27c6f0d0800000000000000
+      internalID: -3389302680476756068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_2
+      name: flying-eye-demon_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 19
-        height: 36
+        x: 106
+        y: 9
+        width: 25
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a94f6701dbcbfea0800000000000000
-      internalID: -5837848393322378839
+      spriteID: 627936681ad6bdf20800000000000000
+      internalID: 3448470480194082598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_3
+      name: flying-eye-demon_3
       rect:
         serializedVersion: 2
-        x: 147
-        y: 0
-        width: 22
-        height: 35
+        x: 154
+        y: 11
+        width: 28
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27384ab45b7b96060800000000000000
-      internalID: 6947285889481737074
+      spriteID: 45b23213f157355c0800000000000000
+      internalID: -4227906848341939372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_4
+      name: flying-eye-demon_4
       rect:
         serializedVersion: 2
-        x: 194
-        y: 0
-        width: 20
-        height: 36
+        x: 203
+        y: 10
+        width: 24
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ed3e9b5871ae5310800000000000000
-      internalID: 1395730472836677095
+      spriteID: 30dc0e3c48b25e260800000000000000
+      internalID: 7126149834605645059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_5
+      name: flying-eye-demon_5
       rect:
         serializedVersion: 2
-        x: 245
-        y: 0
-        width: 18
-        height: 36
+        x: 250
+        y: 8
+        width: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,8 +259,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2cb1acaa95f4dc50800000000000000
-      internalID: 6689241391222078509
+      spriteID: d99d4f0c2951e9450800000000000000
+      internalID: 6097334665552910749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flying-eye-demon_6
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 9
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfb84863b147d68b0800000000000000
+      internalID: -5157338338041754627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flying-eye-demon_7
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 11
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145dccbe3af7dcca0800000000000000
+      internalID: -5994995186947795647
       vertices: []
       indices: 
       edges: []
@@ -272,13 +322,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Walk1_0: 2393064668503620129
-      Walk1_1: 2445549238378987329
-      Walk1_2: -5837848393322378839
-      Walk1_3: 6947285889481737074
-      Walk1_4: 1395730472836677095
-      Walk1_5: 6689241391222078509
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

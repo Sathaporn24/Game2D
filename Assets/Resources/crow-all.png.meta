@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: 404afbccec0f268468abfb92c2fc1f10
+guid: 5cc2dba23e5c2a44db368f892fa4e8ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2393064668503620129
-    second: Walk1_0
+      213: 2562556696740005728
+    second: crow-all_0
   - first:
-      213: 2445549238378987329
-    second: Walk1_1
+      213: -2220013663899343128
+    second: crow-all_1
   - first:
-      213: -5837848393322378839
-    second: Walk1_2
+      213: -8402940888655830413
+    second: crow-all_2
   - first:
-      213: 6947285889481737074
-    second: Walk1_3
+      213: 5274659223050855977
+    second: crow-all_3
   - first:
-      213: 1395730472836677095
-    second: Walk1_4
+      213: 5574621459551208797
+    second: crow-all_4
   - first:
-      213: 6689241391222078509
-    second: Walk1_5
+      213: -1081826230379775533
+    second: crow-all_5
+  - first:
+      213: -5019049297073391742
+    second: crow-all_6
+  - first:
+      213: 553737295356061015
+    second: crow-all_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk1_0
+      name: crow-all_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 21
-        height: 35
+        x: 10
+        y: 110
+        width: 26
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,42 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12a32b213afd53120800000000000000
-      internalID: 2393064668503620129
+      spriteID: 0678cf91db7009320800000000000000
+      internalID: 2562556696740005728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_1
+      name: crow-all_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 0
-        width: 18
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14f7e42431650f120800000000000000
-      internalID: 2445549238378987329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk1_2
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 0
+        x: 63
+        y: 110
         width: 19
-        height: 36
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a94f6701dbcbfea0800000000000000
-      internalID: -5837848393322378839
+      spriteID: 8e624c6b55de031e0800000000000000
+      internalID: -2220013663899343128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_3
+      name: crow-all_2
       rect:
         serializedVersion: 2
-        x: 147
-        y: 0
-        width: 22
-        height: 35
+        x: 106
+        y: 110
+        width: 28
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27384ab45b7b96060800000000000000
-      internalID: 6947285889481737074
+      spriteID: 372601f48c1c26b80800000000000000
+      internalID: -8402940888655830413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_4
+      name: crow-all_3
       rect:
         serializedVersion: 2
-        x: 194
-        y: 0
-        width: 20
-        height: 36
+        x: 12
+        y: 56
+        width: 24
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ed3e9b5871ae5310800000000000000
-      internalID: 1395730472836677095
+      spriteID: 9262f25fd9a533940800000000000000
+      internalID: 5274659223050855977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_5
+      name: crow-all_4
       rect:
         serializedVersion: 2
-        x: 245
-        y: 0
-        width: 18
-        height: 36
+        x: 51
+        y: 61
+        width: 42
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,8 +237,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2cb1acaa95f4dc50800000000000000
-      internalID: 6689241391222078509
+      spriteID: d55c1dd8ea80d5d40800000000000000
+      internalID: 5574621459551208797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow-all_5
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 59
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d9738576c49cf0f0800000000000000
+      internalID: -1081826230379775533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow-all_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 9
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28734c1a141c85ab0800000000000000
+      internalID: -5019049297073391742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crow-all_7
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 2
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7556594e2254fa700800000000000000
+      internalID: 553737295356061015
       vertices: []
       indices: 
       edges: []
@@ -263,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 69d27856437977a4eb7d879c8beaebbc
     internalID: 0
     vertices: []
     indices: 
@@ -273,12 +323,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Walk1_0: 2393064668503620129
-      Walk1_1: 2445549238378987329
-      Walk1_2: -5837848393322378839
-      Walk1_3: 6947285889481737074
-      Walk1_4: 1395730472836677095
-      Walk1_5: 6689241391222078509
+      crow-all_0: 2562556696740005728
+      crow-all_1: -2220013663899343128
+      crow-all_2: -8402940888655830413
+      crow-all_3: 5274659223050855977
+      crow-all_4: 5574621459551208797
+      crow-all_5: -1081826230379775533
+      crow-all_6: -5019049297073391742
+      crow-all_7: 553737295356061015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

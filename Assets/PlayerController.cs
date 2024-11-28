@@ -105,11 +105,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //void TakeDamage(int damage){
-    //    healthbar = healthbar - damage;
-    //}
+    void TakeDamage(int damage){
+        healthbar = healthbar - damage;
+    }
 
-     public void Attack(){
+    public void Attack(){
         StartCoroutine(DelaySlash());
     }
 
@@ -130,6 +130,10 @@ public class PlayerController : MonoBehaviour
         {
             healthbar = 0;
             //Destroy(other.gameObject);
+        }
+        if(other.gameObject.tag == "enemy")
+        {
+            TakeDamage(10);
         }
     }    
 }

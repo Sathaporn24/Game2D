@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 404afbccec0f268468abfb92c2fc1f10
+guid: 2e34ec02741afd543ade054ddca0e89a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2393064668503620129
-    second: Walk1_0
+      213: 38785499995895991
+    second: death-lamp-walk_0
   - first:
-      213: 2445549238378987329
-    second: Walk1_1
+      213: 394818474703531813
+    second: death-lamp-walk_1
   - first:
-      213: -5837848393322378839
-    second: Walk1_2
+      213: -970162228151815910
+    second: death-lamp-walk_2
   - first:
-      213: 6947285889481737074
-    second: Walk1_3
+      213: 5851350581464271778
+    second: death-lamp-walk_3
   - first:
-      213: 1395730472836677095
-    second: Walk1_4
+      213: -4726042657234086116
+    second: death-lamp-walk_4
   - first:
-      213: 6689241391222078509
-    second: Walk1_5
+      213: -5082103712429975109
+    second: death-lamp-walk_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,133 +128,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk1_0
+      name: death-lamp-walk_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 3
         y: 0
-        width: 21
-        height: 35
+        width: 24
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 12a32b213afd53120800000000000000
-      internalID: 2393064668503620129
+      spriteID: e450a979dc47eb54daa5356e8eb20913
+      internalID: -847355838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_1
+      name: death-lamp-walk_1
       rect:
         serializedVersion: 2
-        x: 52
-        y: 0
-        width: 18
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14f7e42431650f120800000000000000
-      internalID: 2445549238378987329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk1_2
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 0
-        width: 19
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a94f6701dbcbfea0800000000000000
-      internalID: -5837848393322378839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Walk1_3
-      rect:
-        serializedVersion: 2
-        x: 147
+        x: 37
         y: 0
         width: 22
-        height: 35
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 27384ab45b7b96060800000000000000
-      internalID: 6947285889481737074
+      spriteID: a3dbb2102fdd6c84cbb559007732d765
+      internalID: 1034868987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_4
+      name: death-lamp-walk_2
       rect:
         serializedVersion: 2
-        x: 194
+        x: 71
         y: 0
         width: 20
-        height: 36
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ed3e9b5871ae5310800000000000000
-      internalID: 1395730472836677095
+      spriteID: 99044cef30e61c84ebc3dae825e612fb
+      internalID: 646775586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk1_5
+      name: death-lamp-walk_3
       rect:
         serializedVersion: 2
-        x: 245
+        x: 99
         y: 0
-        width: 18
-        height: 36
+        width: 27
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d2cb1acaa95f4dc50800000000000000
-      internalID: 6689241391222078509
+      spriteID: ac3d6fdd61f338a4ca2c50ca6c96ed5f
+      internalID: 1896180494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death-lamp-walk_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d7d9084312b15469f4434f89d8c784
+      internalID: -1848024359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death-lamp-walk_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 0
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd2dbcd3b086a04b9e5630e37f83564
+      internalID: -1319067352
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 073e999981a107b45b352da08d153336
     internalID: 0
     vertices: []
     indices: 
@@ -273,12 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Walk1_0: 2393064668503620129
-      Walk1_1: 2445549238378987329
-      Walk1_2: -5837848393322378839
-      Walk1_3: 6947285889481737074
-      Walk1_4: 1395730472836677095
-      Walk1_5: 6689241391222078509
+      death-lamp-walk_0: -847355838
+      death-lamp-walk_1: 1034868987
+      death-lamp-walk_2: 646775586
+      death-lamp-walk_3: 1896180494
+      death-lamp-walk_4: -1848024359
+      death-lamp-walk_5: -1319067352
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
