@@ -9,4 +9,5 @@ public class MainMenuNavigate : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(1);
     }
+
 }
