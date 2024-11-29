@@ -26,10 +26,13 @@ public class PlayerController : MonoBehaviour
     public Text healthText;
     public GameObject hitArea;
     public Slider sliderHp;
+    public Text winText;
 
     private float originalSpeed;
     private float originalJumpPower;
     public bool isInDamageZone = false;
+    private bool isDead = false;
+    private Vector3 respawnPosition;
 
     // สำหรับจัดการการเกิดใหม่ของไอเทม
     private Dictionary<Vector3, bool> healthItemRespawned = new Dictionary<Vector3, bool>();
@@ -44,6 +47,13 @@ public class PlayerController : MonoBehaviour
 
         originalSpeed = speed;
         originalJumpPower = JumpPower;
+        respawnPosition = transform.position;
+
+        // ซ่อนข้อความ Win ในตอนเริ่มต้น
+        if (winText != null)
+        {
+            winText.gameObject.SetActive(false);
+        }
 
         // เก็บตำแหน่งเริ่มต้นของไอเทม health ทั้งหมดในเกม
         GameObject[] healthItems = GameObject.FindGameObjectsWithTag("health");
@@ -56,12 +66,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return; // ถ้าตายแล้วจะไม่ให้ขยับตัวได้
+        }
+
         healthText.text = "HEALTH: " + healthbar + "  SCORE: " + score;
 
         if (healthbar <= 0)
         {
             healthbar = 0;
             animator.SetTrigger("Death");
+            isDead = true;
+            StartCoroutine(HandleDeath());
         }
 
         sliderHp.value = healthbar;
@@ -122,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
     void TakeDamage(int damage)
     {
-        healthbar = healthbar - damage;
+        healthbar = Mathf.Max(healthbar - damage, 0);
     }
 
     public void Attack()
@@ -167,6 +184,10 @@ public class PlayerController : MonoBehaviour
             JumpPower = originalJumpPower / 2; // ลดความสูงในการกระโดดลงครึ่งหนึ่ง
             StartCoroutine(DamageOverTime());
         }
+        if (other.gameObject.tag == "finish")
+        { 
+            StartCoroutine(HandleWin());
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -194,5 +215,30 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         GameObject newHealthItem = Instantiate(Resources.Load("HealthPrefab") as GameObject, position, Quaternion.identity);
         healthItemRespawned[position] = true;
+    }
+
+    IEnumerator HandleDeath()
+    {
+        yield return new WaitForSeconds(5f); // นอนนิ่งเป็นเวลา 5 วินาที
+        transform.position = respawnPosition; // รีเซ็ตกลับไปยังจุดเริ่มต้น
+        healthbar = 100; // ฟื้นฟูพลังชีวิตเต็ม
+        isDead = false; // ปลดสถานะตาย
+        animator.Rebind(); // รีเซ็ตแอนิเมชันทั้งหมดและกลับไปสู่สถานะเริ่มต้น
+    }
+
+    IEnumerator HandleWin()
+    {
+        if (winText != null)
+        {
+            winText.gameObject.SetActive(true);
+            winText.text = "Win\nRestarting in 5 seconds...";
+        }
+        yield return new WaitForSeconds(5f);
+        transform.position = respawnPosition; // รีเซ็ตกลับไปยังจุดเริ่มต้น
+        healthbar = 100; // ฟื้นฟูพลังชีวิตเต็ม
+        if (winText != null)
+        {
+            winText.gameObject.SetActive(false); // ซ่อนข้อความ Win หลังจากเริ่มต้นใหม่
+        }
     }
 }

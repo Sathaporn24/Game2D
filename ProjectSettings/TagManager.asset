@@ -9,6 +9,8 @@ TagManager:
   - deathzone
   - enemy
   - damagezone
+  - winzone
+  - finish
   layers:
   - Default
   - TransparentFX
