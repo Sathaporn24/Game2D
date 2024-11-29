@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public int score = 0;
     public float speed = 1f;
     public float jumpSpeed = 9f;
     public float maxSpeed = 10f;
@@ -26,7 +27,12 @@ public class PlayerController : MonoBehaviour
     public GameObject hitArea;
     public Slider sliderHp;
 
+    private float originalSpeed;
+    private float originalJumpPower;
+    public bool isInDamageZone = false;
 
+    // สำหรับจัดการการเกิดใหม่ของไอเทม
+    private Dictionary<Vector3, bool> healthItemRespawned = new Dictionary<Vector3, bool>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,27 +41,34 @@ public class PlayerController : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();
         sliderHp.maxValue = healthbar;
         sliderHp.value = healthbar;
+
+        originalSpeed = speed;
+        originalJumpPower = JumpPower;
+
+        // เก็บตำแหน่งเริ่มต้นของไอเทม health ทั้งหมดในเกม
+        GameObject[] healthItems = GameObject.FindGameObjectsWithTag("health");
+        foreach (GameObject healthItem in healthItems)
+        {
+            healthItemRespawned.Add(healthItem.transform.position, true);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "HEALTH: "+healthbar;
+        healthText.text = "HEALTH: " + healthbar + "  SCORE: " + score;
 
-        if(healthbar <= 0){
+        if (healthbar <= 0)
+        {
             healthbar = 0;
             animator.SetTrigger("Death");
         }
-        
-        sliderHp.value = healthbar;
 
-        //if(Input.GetKey(KeyCode.L)){
-        //    TakeDamage(10);
-        //}
+        sliderHp.value = healthbar;
 
         animator.SetBool("Grounded", true);
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
-        
+
         float horizontalInput = Input.GetAxis("Horizontal");
         if (horizontalInput < -0.1f)
         {
@@ -72,16 +85,19 @@ public class PlayerController : MonoBehaviour
             // หยุดการเคลื่อนไหวเมื่อไม่มีการกดปุ่ม
             transform.Translate(Vector2.zero);
         }
-        
-        if(Input.GetButtonDown("Jump") && Time.time > nextJumpPress){
-            animator.SetBool("Jump",true);
+
+        if (Input.GetButtonDown("Jump") && Time.time > nextJumpPress)
+        {
+            animator.SetBool("Jump", true);
             nextJumpPress = Time.time + jumpRate;
-            ridigBody2D.AddForce(jumpSpeed*(Vector2.up * JumpPower));
-        }else{
-            animator.SetBool("Jump",false);
+            ridigBody2D.AddForce(jumpSpeed * (Vector2.up * JumpPower));
+        }
+        else
+        {
+            animator.SetBool("Jump", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.X) && Time.time > nextFireRate)
+        if (!isInDamageZone && Input.GetKeyDown(KeyCode.X) && Time.time > nextFireRate)
         {
             nextFireRate = Time.time + fireRate;
 
@@ -102,38 +118,81 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger("ComboStep", comboStep); // ส่งค่าขั้นตอนคอมโบไปยัง Animator
             animator.SetTrigger("Attack"); // เล่นแอนิเมชันโจมตี
         }
-
     }
 
-    void TakeDamage(int damage){
+    void TakeDamage(int damage)
+    {
         healthbar = healthbar - damage;
     }
 
-    public void Attack(){
+    public void Attack()
+    {
         StartCoroutine(DelaySlash());
     }
 
-    IEnumerator DelaySlash(){
+    IEnumerator DelaySlash()
+    {
         yield return new WaitForSeconds(0.3f);
-        Instantiate(hitArea,transform.position,transform.rotation);
+        Instantiate(hitArea, transform.position, transform.rotation);
     }
 
-    void OnTriggerEnter2D (Collider2D other){
-        if(other.gameObject.tag == "health")
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "health")
+        {
+            healthbar += 13;
+            if (healthbar > 100) healthbar = 100;
+            score += 7;
+            
+            Vector3 healthPosition = other.transform.position;
+            if (healthItemRespawned.ContainsKey(healthPosition) && healthItemRespawned[healthPosition])
             {
-            healthbar += 50;
-            if (healthbar > 100)
-                healthbar = 100;
-            Destroy(other.gameObject);
+                healthItemRespawned[healthPosition] = false;
+                StartCoroutine(RespawnHealth(healthPosition, 5f));
+                Destroy(other.gameObject);
+            }
         }
-        if(other.gameObject.tag == "deathzone")
+        if (other.gameObject.tag == "deathzone")
         {
             healthbar = 0;
-            //Destroy(other.gameObject);
         }
-        if(other.gameObject.tag == "enemy")
+        if (other.gameObject.tag == "enemy")
         {
             TakeDamage(10);
         }
-    }    
+        if (other.gameObject.tag == "damagezone")
+        {
+            isInDamageZone = true;
+            speed = originalSpeed / 2; // ลดความเร็วลงครึ่งหนึ่ง
+            JumpPower = originalJumpPower / 2; // ลดความสูงในการกระโดดลงครึ่งหนึ่ง
+            StartCoroutine(DamageOverTime());
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "damagezone")
+        {
+            isInDamageZone = false;
+            speed = originalSpeed; // คืนค่าความเร็วเดิม
+            JumpPower = originalJumpPower; // คืนค่าความสูงในการกระโดดเดิม
+            StopCoroutine(DamageOverTime());
+        }
+    }
+
+    IEnumerator DamageOverTime()
+    {
+        while (isInDamageZone)
+        {
+            TakeDamage(5);
+            yield return new WaitForSeconds(1f); // โดนความเสียหายทุก ๆ 1 วินาที
+        }
+    }
+
+    IEnumerator RespawnHealth(Vector3 position, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GameObject newHealthItem = Instantiate(Resources.Load("HealthPrefab") as GameObject, position, Quaternion.identity);
+        healthItemRespawned[position] = true;
+    }
 }

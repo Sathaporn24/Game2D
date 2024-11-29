@@ -8,6 +8,7 @@ TagManager:
   - weaponA
   - deathzone
   - enemy
+  - damagezone
   layers:
   - Default
   - TransparentFX
